@@ -20,22 +20,22 @@ export default function Project() {
   };
 
   // 封裝一個帶有毛玻璃標題的圖片組件
-  const ProjectCard = ({ img, title }) => (
-    <div className="relative group overflow-hidden rounded-[12px] shadow-sm bg-white/10 mb-4">
-      <img 
-        src={`/images/${img}`} 
-        alt={title}
-        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-        onError={(e) => { e.target.src = "https://via.placeholder.com/400x300?text=Project+Image"; }}
-      />
-      {/* 毛玻璃效果底條 */}
-      <div className="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-white/30 py-3 px-4 border-t border-white/20">
-        <p className="text-[#4E4F97] font-bold text-sm sm:text-base tracking-wide">
-          {title}
-        </p>
-      </div>
+  // 修改後
+// 封裝一個帶有毛玻璃標題的圖片組件
+const ProjectCard = ({ img, title }: { img: string; title: string }) => (
+  <div className="relative group overflow-hidden rounded-[12px] shadow-sm bg-white/10 mb-4">
+    <img 
+      src={`/images/${img}`} 
+      alt={title}
+      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+    />
+    <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/30 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <p className="text-white text-sm font-medium text-center">{title}</p>
     </div>
-  );
+  </div>
+);
+     
 
   return (
     <div className="fixed inset-0 z-[100] sm:relative sm:inset-auto w-full h-full p-4 sm:p-0">

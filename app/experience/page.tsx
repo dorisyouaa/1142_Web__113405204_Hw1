@@ -69,7 +69,7 @@ export default function Experience() {
                 src="/images/post1.jpg" 
                 alt="HSNC Performance" 
                 className="w-full h-auto rounded-[10px] border-2 border-[#DDDDFF] shadow-sm object-cover"
-                onError={(e) => { e.target.style.display = 'none'; }}
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
               />
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function Experience() {
                 src="/images/post2.jpg" 
                 alt="NCCU Performance" 
                 className="w-full h-auto rounded-[10px] border-2 border-[#DDDDFF] shadow-sm object-cover"
-                onError={(e) => { e.target.style.display = 'none'; }}
+                
               />
             </div>
           </div>
